@@ -1,12 +1,6 @@
 import React from 'react';
 import styles from './NavBar.module.css';
-import cartIcon from '../../img/cart.svg';
-
-const CartWidget = () =>{
-    return(
-        <img src={cartIcon} />
-    )
-}
+import CartWidget from '../CartWidget';
 
 const HeaderLink = (props) =>{
     return(
