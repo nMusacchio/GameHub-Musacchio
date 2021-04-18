@@ -17,14 +17,18 @@ const NavBar = (props) =>{
                     <p className={styles.logo}>Game<span>Hub</span></p>
                     <CartWidget />
                 </div>
-                <div className={styles.sections}>
-                    {
-                        sections.map((element)=>{
-                            return (
-                                <HeaderLink name={element} />
-                            )
-                        })
-                    }
+            </div>
+            <div className={styles.sections}>
+                <div className="container">
+                    <div className={styles.sectionsWrapper}>
+                        {
+                            sections.map((element)=>{
+                                return (
+                                    <HeaderLink name={element} />
+                                )
+                            })
+                        }
+                    </div>
                 </div>
             </div>
         </div>

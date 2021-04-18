@@ -9,7 +9,8 @@
 }
 
 .header{
-    background-color: #171a1d;
+    background-color: #222831;
+    margin-bottom: 25px;
 }
 
 .headerWrapper{
@@ -17,15 +18,19 @@
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    padding: 20px 0px;
 }
 
 .sections{
+    background-color: #00adb5;
+}
+
+.sectionsWrapper{
     display: flex;
     flex-wrap: wrap;
 }
 
 .headerLink{
-    background-color: #5b6167;
     display: inline-block;
     padding: 15px;
     text-align: center;
@@ -34,5 +39,6 @@
 }
 
 .headerLink:hover{
-    background-color: #676e74;
+    background-color: #eeeeee;
+    color: #00adb5;
 }
