@@ -1,10 +1,11 @@
 import React from 'react';
 import styles from './NavBar.module.css';
 import CartWidget from '../CartWidget';
+import {Link} from 'react-router-dom';
 
 const HeaderLink = (props) =>{
     return(
-        <a className={styles.headerLink} href={`/${props.name}`}>{props.name}</a>
+        <Link to={`/category/${props.name}`} className={styles.headerLink} href={`/${props.name}`}>{props.name}</Link>
     )
 }
 
@@ -14,7 +15,7 @@ const NavBar = (props) =>{
         <div className={styles.header}>
             <div className="container">
                 <div className={styles.headerWrapper}>
-                    <p className={styles.logo}>Game<span>Hub</span></p>
+                    <Link to="/"><p className={styles.logo}>Game<span>Hub</span></p></Link>
                     <CartWidget />
                 </div>
             </div>
