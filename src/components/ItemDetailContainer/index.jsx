@@ -30,6 +30,13 @@ const ItemDetailContainer = ()=>{
                     price: 900,
                     description:"Soy un producto.",
                     img: "https://i.pinimg.com/236x/52/81/ce/5281cea00cc9830dd874ebbca3b01e51.jpg"
+                },
+                {
+                    id: '4',
+                    title: 'Item #4',
+                    price: 900,
+                    description:"Soy un producto.",
+                    img: "https://i.pinimg.com/236x/52/81/ce/5281cea00cc9830dd874ebbca3b01e51.jpg"
                 }
             ]
             let _item = _items.filter(obj => {
@@ -37,7 +44,7 @@ const ItemDetailContainer = ()=>{
             })
             setTimeout(()=>{
                 resolve(_item[0]);
-            }, 2000)
+            }, 0)
         })
         getItem.then((res)=>{
             setItem(res);

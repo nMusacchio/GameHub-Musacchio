@@ -28,7 +28,7 @@
     font-weight: 500;
 }
 
-.grid .info button{
+.grid .info .buyButton{
     background-color: #00adb5;
     transition: 0.2s;
     border: none;
@@ -40,7 +40,7 @@
     cursor: pointer;
 }
 
-.grid .info button:hover{
+.grid .info .buyButton:hover{
     background-color: #eee;
     color: #00adb5;
 }
