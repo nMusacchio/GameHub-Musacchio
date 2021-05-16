@@ -1,14 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import styles from './ItemCount.module.css';
+import {CartContext} from '../context/cartContext';
 
-const ItemCount = ()=>{
-    const [quantity, setQuantity] = useState(1);
+const ItemCount = ({initVal, item})=>{
+    const [quantity, setQuantity] = useState(initVal ? initVal : 1);
+    const cart = useContext(CartContext);
     function add(){
         setQuantity(quantity + 1);
+        if(initVal)
+            cart.addByOne(item)
+            
     }
     function sub(){
-        if(quantity>1)
+        if(quantity>1){
             setQuantity(quantity - 1);
+            if(initVal)
+                cart.subByOne(item)
+        }
     }
     return(
         <div className={styles.itemCount}>

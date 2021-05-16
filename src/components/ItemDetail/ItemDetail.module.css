@@ -38,6 +38,7 @@
     text-transform: uppercase;
     font-weight: 500;
     cursor: pointer;
+    margin-top: 10px;
 }
 
 .grid .info .buyButton:hover{

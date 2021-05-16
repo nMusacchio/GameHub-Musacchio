@@ -1,0 +1,43 @@
+.item{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-color: #222831;
+    border-radius: 3px;
+    padding: 25px;
+    position: relative;
+    margin-top: 15px;
+}
+
+.item .title{
+    font-size: 21px;
+}
+
+.item .desc{
+    font-size: 15px;
+    color: silver;
+    margin-top: 3px;
+}
+
+.item .price{
+    font-size: 23px;
+    margin-bottom: 8px;
+}
+
+.item .remove{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #00adb5;
+    font-weight: 700;
+}
+
+.itemsContainer{
+    margin-bottom: 20px;
+}
+
+.emptyCart{
+    margin-top: 1px;
+}

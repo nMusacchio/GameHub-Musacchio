@@ -1,57 +1,31 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import ItemDetail from '../ItemDetail';
+import {getFirestore} from '../../firebase';
+import Spinner from '../Spinner';
 
 
 const ItemDetailContainer = ()=>{
-    const [item, setItem] = useState([]);
+    const [item, setItem] = useState({});
+    const [loading, setLoading] = useState(false);
     let id_item = useParams().id;
 
-    useEffect(()=>{
-        const getItem = new Promise((resolve, err) => {
-            const _items = [
-                {
-                    id: '1',
-                    title: 'Item #1',
-                    price: 300,
-                    description:"Soy un producto.",
-                    img: "https://i.pinimg.com/236x/52/81/ce/5281cea00cc9830dd874ebbca3b01e51.jpg"
-                },
-                {
-                    id: '2',
-                    title: 'Item #2',
-                    price: 199,
-                    description:"Soy un producto.",
-                    img: "https://i.pinimg.com/236x/52/81/ce/5281cea00cc9830dd874ebbca3b01e51.jpg"
-                },
-                {
-                    id: '3',
-                    title: 'Item #3',
-                    price: 900,
-                    description:"Soy un producto.",
-                    img: "https://i.pinimg.com/236x/52/81/ce/5281cea00cc9830dd874ebbca3b01e51.jpg"
-                },
-                {
-                    id: '4',
-                    title: 'Item #4',
-                    price: 900,
-                    description:"Soy un producto.",
-                    img: "https://i.pinimg.com/236x/52/81/ce/5281cea00cc9830dd874ebbca3b01e51.jpg"
-                }
-            ]
-            let _item = _items.filter(obj => {
-                return obj.id === id_item;
-            })
-            setTimeout(()=>{
-                resolve(_item[0]);
-            }, 0)
+    useEffect(() =>{
+        setLoading(true);
+        const db = getFirestore();
+
+        const itemsCollection = db.collection('items');
+        const itemRequested = itemsCollection.where('url_path', "==", id_item);
+        itemRequested.get().then((querySnapshot)=>{
+            setItem({...querySnapshot.docs[0].data(), id: querySnapshot.docs[0].id});
         })
-        getItem.then((res)=>{
-            setItem(res);
-        });
-    }, [])
+        .catch((err) => console.log(`Error: ${err}`))
+        .finally(()=>{
+            setLoading(false);
+        })
+    }, []);
     
-    return (<ItemDetail item={item}/>)
+    return loading ? <Spinner /> : (<ItemDetail item={item}/>)
 }
 
 export default ItemDetailContainer;
