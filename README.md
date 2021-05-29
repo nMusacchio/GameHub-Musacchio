@@ -24,3 +24,10 @@ localhost:3000/category/:id_category
 localhost:3000/
 localhost:3000/item/:id_item
 ```
+### Cart
+```
+localhost:3000/
+localhost:3000/cart
+```
+# Proceso de compra
+![Proceso de compra](https://media.giphy.com/media/SrwDkGRdQzOjuFkQrK/giphy.gif)
