@@ -2,10 +2,11 @@ import React, { useState, useContext } from 'react';
 import styles from './ItemCount.module.css';
 import {CartContext} from '../context/cartContext';
 
-const ItemCount = ({initVal, item})=>{
+const ItemCount = ({initVal, item, maxValue})=>{
     const [quantity, setQuantity] = useState(initVal ? initVal : 1);
     const cart = useContext(CartContext);
     function add(){
+        if(quantity<maxValue)
         setQuantity(quantity + 1);
         if(initVal)
             cart.addByOne(item)

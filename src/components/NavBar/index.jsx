@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import styles from './NavBar.module.css';
 import CartWidget from '../CartWidget';
 import {Link} from 'react-router-dom';
 import {getFirestore} from '../../firebase';
+import {CartContext} from '../context/cartContext';
 
 const HeaderLink = ({category}) =>{
     return(
@@ -11,6 +12,7 @@ const HeaderLink = ({category}) =>{
 }
 
 const NavBar = () =>{
+    const cart = useContext(CartContext);
     const [categories, setCategories] = useState([]);
 
     useEffect(() =>{
@@ -30,7 +32,9 @@ const NavBar = () =>{
             <div className="container">
                 <div className={styles.headerWrapper}>
                     <Link to="/"><p className={styles.logo}>Game<span>Hub</span></p></Link>
-                    <CartWidget />
+                    {
+                        cart.cartSize() > 0 ? <CartWidget /> : ''
+                    }
                 </div>
             </div>
             <div className={styles.sections}>

@@ -47,9 +47,6 @@
     width: 100%;
     border-radius: 3px;
     padding: 25px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .form input{
@@ -66,7 +63,6 @@
 }
 
 .form button{
-    display: block;
     background-color: #00adb5;
     transition: 0.2s;
     border: none;
@@ -79,12 +75,7 @@
     margin-top: 10px;
 }
 
-.form button:disabled{
-    background-color: #393e46;
-    cursor: no-drop;
-}
-
-.form button:hover:enabled{
+.form button:hover{
     background-color: #eee;
     color: #00adb5;
 }

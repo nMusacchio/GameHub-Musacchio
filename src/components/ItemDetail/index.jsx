@@ -15,11 +15,11 @@ const ItemDetail = ({item})=>{
                     <p className={styles.title}>{item.title}</p>
                     <p className={styles.price}> $ {item.price}</p>
                     <p className={styles.description}>{item.description}</p>
-                    <ItemCount />
+                    <ItemCount maxValue={item.stock} />
                     <button class={styles.buyButton} onClick={()=>{
                         cart.addItem(item, parseInt(document.getElementById('count').value));
                     }}>Añadir al carrito</button>
-                    {cart.cartSize() > 0 ? <Link to="/cart"><button class={styles.buyButton}>Terminar compra</button></Link> : ''}
+                    {cart.isInCart(item.id) ? <Link to="/cart"><button class={styles.buyButton}>Terminar compra</button></Link> : ''}
                 </div>
             </div>
         </div>
